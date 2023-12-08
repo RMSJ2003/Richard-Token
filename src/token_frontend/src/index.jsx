@@ -7,6 +7,11 @@ const init = async () => {
   // Create authClient object
   const authClient = await AuthClient.create();
 
+  // Checks if the user is already authenticated
+  if (await authClient.isAuthenticated()) {
+    console.log("logged in");
+  }
+
   await authClient.login({
     // Who is the identityProvider:
     // The identityProvider is going to be a URL that points
